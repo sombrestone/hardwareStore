@@ -1,0 +1,11 @@
+{
+  "port": 7000,
+  "tokenSeed": "mamapapapopa",
+  "database": {
+    "name": "test",
+    "dialect": "mysql",
+    "host": "localhost",
+    "username": "root",
+    "password": "mamapapa"
+  }
+}
