@@ -1,9 +1,9 @@
 import React from 'react';
 
-const NavToggle = () => {
+const Estimate = () => {
     return (
         <div></div>
     );
 };
 
-export default NavToggle;
+export default Estimate;

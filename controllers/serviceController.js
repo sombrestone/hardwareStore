@@ -1,7 +1,9 @@
 const {Services,Rates,Units, sequelize} = require('../models');
 const {Op}=require('sequelize');
 
+//Класс управления услугами
 class ServiceController{
+    //добавление услуги
     async create(req,res,next){
         try {
             const {name,unitId} = req.body;
@@ -10,9 +12,11 @@ class ServiceController{
             next();
         }
         catch (e) {
+            console.log(e);
             return res.status(400).json(`Server error`);
         }
     }
+    //Новая цена для услуги
     async newRate(req,res){
         try {
             const {price,serviceId} = req.body;
@@ -26,7 +30,7 @@ class ServiceController{
             return res.status(400).json(`Server error`);
         }
     }
-
+//получить все услуги
     async getAll(req,res){
         try {
             const services = await Services.findAll({
@@ -47,6 +51,7 @@ class ServiceController{
             return res.status(400).json(`Server error`);
         }
     }
+    //удалить услугу
     async delete(req,res){
         try{
             const{id}=req.body;
@@ -54,6 +59,7 @@ class ServiceController{
             await current.destroy();
             return  res.json({message:"Услуга удалена"});
         }catch (e) {
+            console.log(e);
             return res.status(400).json(`Server error`);
         }
     }
